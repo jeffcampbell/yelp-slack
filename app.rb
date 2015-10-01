@@ -52,7 +52,7 @@ def generate_attachment
   if @cross_streets.nil?
     @location = "_Cross streets unavailable_"
   else
-    @location = @cross_streets
+    @location = query.businesses[0].location.cross_streets
   end
 
   # response
