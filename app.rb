@@ -38,6 +38,7 @@ def generate_attachment
                             })
   options = { term: "#{user_query}",
              limit: 1,
+             radius_filter: ENV["RADIUS"],
            }
   query = client.search("#{ENV["LOCATION"]}", options)
 
