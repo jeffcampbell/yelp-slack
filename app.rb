@@ -42,7 +42,7 @@ def generate_attachment
   query = client.search("#{ENV["LOCATION"]}", options)
 
   @name = query.businesses[0].name
-  @location = query.businesses[0].location.address
+  @location = query.businesses[0].location.address[0]
   @url = query.businesses[0].url
   @rating = query.businesses[0].rating
   @summary = query.businesses[0].snippet_text
