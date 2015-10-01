@@ -42,14 +42,14 @@ def generate_attachment
   query = client.search("#{ENV["LOCATION"]}", options)
 
   @name = query.businesses[0].name
-  @cross_streets = query.businesses[0].location.cross_streets
   @url = query.businesses[0].url
   @rating = query.businesses[0].rating
   @summary = query.businesses[0].snippet_text
   @review_count = query.businesses[0].review_count
   @image = query.businesses[0].image_url
 
-  if @cross_streets.nil?
+  cross_streets = query.businesses[0].location.cross_streets
+  if cross_streets.nil?
     @location = "_Cross streets unavailable_"
   else
     @location = query.businesses[0].location.cross_streets
