@@ -17,7 +17,6 @@ GEM
     rack (1.6.0)
     rack-protection (1.5.3)
       rack
-    redis (3.2.1)
     simple_oauth (0.3.1)
     sinatra (1.4.5)
       rack (~> 1.4)
@@ -39,7 +38,6 @@ PLATFORMS
 DEPENDENCIES
   dotenv
   httparty
-  redis
   sinatra
   thin
   yelp
