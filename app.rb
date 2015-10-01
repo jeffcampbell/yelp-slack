@@ -42,18 +42,12 @@ def generate_attachment
   query = client.search("#{ENV["LOCATION"]}", options)
 
   @name = query.businesses[0].name
+  @location = query.businesses[0].location.address
   @url = query.businesses[0].url
   @rating = query.businesses[0].rating
   @summary = query.businesses[0].snippet_text
   @review_count = query.businesses[0].review_count
   @image = query.businesses[0].image_url
-
-  cross_streets = query.businesses[0].location.cross_streets
-  if cross_streets.nil?
-    @location = "_Cross streets unavailable_"
-  else
-    @location = query.businesses[0].location.cross_streets
-  end
 
   # response
   response = { mrkdwn_in: ["text"], title: "#{@name}", title_link: "#{@url}", text: "*#{@location}*\n#{@summary} <#{@url}| more>", thumb_url: "#{@image}", fields: [ { title: "Reviews", value: "#{@review_count}", short: true }, { title: "Rating", value: "#{@rating}", short: true } ] }
