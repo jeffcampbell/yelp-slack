@@ -28,7 +28,6 @@ end
 
 def generate_attachment
   user_query = params[:text]
-  searchcounter =
 
   # Yelp logic
   client = Yelp::Client.new({ consumer_key: ENV["YELP_CONSUMER_KEY"],
